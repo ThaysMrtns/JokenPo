@@ -22,7 +22,16 @@ class _State extends State<Jogo> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )),
-          Image.asset("imagens/padrao.png"),
+          //Image.asset("imagens/padrao.png"),
+          GestureDetector(
+            onTap: () {
+              print("Click!");
+            },
+            onDoubleTap: () {
+              print("Duplo click!");
+            },
+            child: Image.asset("imagens/padrao.png"), //Widget a ser clickado
+          ),
           Padding(
               padding: EdgeInsets.all(20),
               child: Text(
