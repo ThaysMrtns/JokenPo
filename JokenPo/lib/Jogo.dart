@@ -13,7 +13,7 @@ class _State extends State<Jogo> {
         title: Text("JokenPo"),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
               padding: EdgeInsets.all(20),
@@ -22,7 +22,32 @@ class _State extends State<Jogo> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )),
-          Image.asset("")
+          Image.asset("imagens/padrao.png"),
+          Padding(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                "Escolha uma opção abaixo:",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              )),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Image.asset(
+                "imagens/papel.png",
+                height: 100,
+              ),
+              Image.asset(
+                "imagens/pedra.png",
+                height: 100,
+              ),
+              Image.asset(
+                "imagens/tesoura.png",
+                height: 100,
+              ),
+            ],
+          )
         ],
       ),
     );
