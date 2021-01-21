@@ -34,6 +34,22 @@ class _State extends State<Jogo> {
         });
         break;
     }
+
+    if (escolhaUser == "pedra" && escolhaApp == "tesoura") {
+      print("user ganhou");
+    } else if (escolhaUser == "pedra" && escolhaApp == "papel") {
+      print("user perdeu");
+    } else if (escolhaUser == escolhaApp) {
+      print("empate");
+    } else if (escolhaUser == "papel" && escolhaApp == "tesoura") {
+      print("user perdeu");
+    } else if (escolhaUser == "papel" && escolhaApp == "pedra") {
+      print("user ganhou");
+    } else if (escolhaUser == "tesoura" && escolhaApp == "papel") {
+      print("user ganhou");
+    } else if (escolhaUser == "tesoura" && escolhaApp == "pedra") {
+      print("user perdeu");
+    }
   }
 
   @override
