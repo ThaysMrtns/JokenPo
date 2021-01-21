@@ -6,6 +6,12 @@ class Jogo extends StatefulWidget {
 }
 
 class _State extends State<Jogo> {
+  var imagemApp = AssetImage("imagens/padrao.png");
+
+  void opcaoSelecionada(String escolhaUser) {
+    print(escolhaUser);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,16 +28,7 @@ class _State extends State<Jogo> {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )),
-          //Image.asset("imagens/padrao.png"),
-          GestureDetector(
-            onTap: () {
-              print("Click!");
-            },
-            onDoubleTap: () {
-              print("Duplo click!");
-            },
-            child: Image.asset("imagens/padrao.png"), //Widget a ser clickado
-          ),
+          Image(image: this.imagemApp),
           Padding(
               padding: EdgeInsets.all(20),
               child: Text(
@@ -43,18 +40,27 @@ class _State extends State<Jogo> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.asset(
-                "imagens/papel.png",
-                height: 100,
+              GestureDetector(
+                onTap: () => opcaoSelecionada("papel"),
+                child: Image.asset(
+                  "imagens/papel.png",
+                  height: 100,
+                ),
               ),
-              Image.asset(
-                "imagens/pedra.png",
-                height: 100,
+              GestureDetector(
+                onTap: () => opcaoSelecionada("pedra"),
+                child: Image.asset(
+                  "imagens/pedra.png",
+                  height: 100,
+                ),
               ),
-              Image.asset(
-                "imagens/tesoura.png",
-                height: 100,
-              ),
+              GestureDetector(
+                onTap: () => opcaoSelecionada("tesoura"),
+                child: Image.asset(
+                  "imagens/tesoura.png",
+                  height: 100,
+                ),
+              )
             ],
           )
         ],
