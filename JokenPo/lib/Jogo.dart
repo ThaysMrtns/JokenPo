@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Jogo extends StatefulWidget {
   @override
@@ -9,7 +10,30 @@ class _State extends State<Jogo> {
   var imagemApp = AssetImage("imagens/padrao.png");
 
   void opcaoSelecionada(String escolhaUser) {
-    print(escolhaUser);
+    var opcoes = ["pedra", "papel", "tesoura"];
+    var num = Random().nextInt(3);
+    var escolhaApp = opcoes[num];
+
+    print("Escolha do usuário: $escolhaUser");
+    print("Escolha do app: $escolhaApp");
+
+    switch (escolhaApp) {
+      case "pedra":
+        setState(() {
+          this.imagemApp = AssetImage("imagens/pedra.png");
+        });
+        break;
+      case "papel":
+        setState(() {
+          this.imagemApp = AssetImage("imagens/papel.png");
+        });
+        break;
+      case "tesoura":
+        setState(() {
+          this.imagemApp = AssetImage("imagens/tesoura.png");
+        });
+        break;
+    }
   }
 
   @override
