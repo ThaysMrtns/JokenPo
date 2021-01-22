@@ -8,6 +8,7 @@ class Jogo extends StatefulWidget {
 
 class _State extends State<Jogo> {
   var imagemApp = AssetImage("imagens/padrao.png");
+  var vitoria = "";
 
   void opcaoSelecionada(String escolhaUser) {
     var opcoes = ["pedra", "papel", "tesoura"];
@@ -37,18 +38,39 @@ class _State extends State<Jogo> {
 
     if (escolhaUser == "pedra" && escolhaApp == "tesoura") {
       print("user ganhou");
+      setState(() {
+        vitoria = "Jogador";
+      });
     } else if (escolhaUser == "pedra" && escolhaApp == "papel") {
       print("user perdeu");
+      setState(() {
+        vitoria = "Máquina";
+      });
     } else if (escolhaUser == escolhaApp) {
       print("empate");
+      setState(() {
+        vitoria = "empate";
+      });
     } else if (escolhaUser == "papel" && escolhaApp == "tesoura") {
       print("user perdeu");
+      setState(() {
+        vitoria = "Máquina";
+      });
     } else if (escolhaUser == "papel" && escolhaApp == "pedra") {
       print("user ganhou");
+      setState(() {
+        vitoria = "Jogador";
+      });
     } else if (escolhaUser == "tesoura" && escolhaApp == "papel") {
       print("user ganhou");
+      setState(() {
+        vitoria = "Jogador";
+      });
     } else if (escolhaUser == "tesoura" && escolhaApp == "pedra") {
       print("user perdeu");
+      setState(() {
+        vitoria = "Máquina";
+      });
     }
   }
 
@@ -102,7 +124,15 @@ class _State extends State<Jogo> {
                 ),
               )
             ],
-          )
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: Text(
+              "Vitória: $vitoria",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
         ],
       ),
     );
